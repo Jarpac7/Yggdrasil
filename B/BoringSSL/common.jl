@@ -14,7 +14,7 @@ cmake
     -DGO_EXECUTABLE=$(which go) \
     ..
 
-make -j${nproc}
+ninja -j${nproc}
 
 mkdir -p ${prefix}/include
 mkdir -p ${libdir}
