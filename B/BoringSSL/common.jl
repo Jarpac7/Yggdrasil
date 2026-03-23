@@ -1,18 +1,19 @@
 script = raw"""
-cd ${WORKSPACE}/srcdir/boringssl
+cd ${WORKSPACE}/srcdir/boringssl*
 
 mkdir build && cd build
 
 cmake 
-    -DCMAKE_INSTALL_PREFIX=${prefix} \
-    -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_SHARED_LIBS=ON \
-    -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
-    -DCMAKE_INSTALL_LIBDIR=${libdir} \
-    -DBORINGSSL_PREFIX=LS \
-    -DGO_EXECUTABLE=$(which go) \
-    ..
+-GNinja \
+-DCMAKE_INSTALL_PREFIX=${prefix} \
+-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TARGET_TOOLCHAIN} \
+-DCMAKE_BUILD_TYPE=Release \
+-DBUILD_SHARED_LIBS=ON \
+-DCMAKE_POSITION_INDEPENDENT_CODE=ON \
+-DCMAKE_INSTALL_LIBDIR=${libdir} \
+-DBORINGSSL_PREFIX=LS \
+-DGO_EXECUTABLE=$(which go) \
+..
 
 ninja -j${nproc}
 
