@@ -9,7 +9,7 @@ sources = [
 include("../common.jl")
 
 products = [
-    LibraryProduct(["libcrypto", "crypto"], :libcrypto)
+    LibraryProduct(["libcrypto", "crypto"], :libcrypto),
     LibraryProduct(["libssl", "ssl"], :libssl)
 ]
 
